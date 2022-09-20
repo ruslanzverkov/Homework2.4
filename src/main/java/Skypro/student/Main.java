@@ -13,29 +13,29 @@ public class Main {
 
     public static boolean acceptLoginPassword(String login, String password, String confirmPassword) {
 
-        boolean containsSymbolsLogin = containsSymbols(login);
-        boolean conSymbolsPassword = containsSymbols(password);
-        boolean checkLoginLengthLogin = checkLoginLength(login);
-        boolean checkLoginLengthPassword = checkPasswordLength(password);
-        boolean equalsPasswordConfirmPassword = equalsPasswordConfirmPassword(password, confirmPassword);
+        boolean containsSymbolsLogin;
+        boolean conSymbolsPassword;
+        boolean checkLoginLengthLogin;
+        boolean checkLoginLengthPassword;
+        boolean equalsPasswordConfirmPassword;
         try {
-            containsSymbols(login);
-            containsSymbols(password);
-            checkLoginLength(login);
-            checkPasswordLength(password);
-            equalsPasswordConfirmPassword(password, confirmPassword);
-        } catch (WrongLoginException|WrongPasswordException  e)
+            containsSymbolsLogin = containsSymbols(login);
+            conSymbolsPassword = containsSymbols(password);
+            checkLoginLengthLogin = checkLoginLength(login);
+            checkLoginLengthPassword = checkPasswordLength(password);
+            equalsPasswordConfirmPassword = equalsPasswordConfirmPassword(password, confirmPassword);
+        } catch (WrongLoginException | WrongPasswordException e)
         //Видно что есть 2 ошибки, 2я не выводиться непойму
         //что надо сделать??
         {
             System.out.println(e.getMessage());
             return false;
         }
-        return containsSymbols(login)
-                & containsSymbols(password)
-                & checkLoginLength(login)
-                & checkPasswordLength(password)
-                & equalsPasswordConfirmPassword(password, confirmPassword);
+        return containsSymbolsLogin
+                & conSymbolsPassword
+                & checkLoginLengthLogin
+                & checkLoginLengthPassword
+                & equalsPasswordConfirmPassword;
     }
 
     public static boolean containsSymbols(String symbols) {

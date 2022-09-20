@@ -19,7 +19,6 @@ public class Main {
         boolean checkLoginLengthPassword = checkPasswordLength(password);
         boolean equalsPasswordConfirmPassword = equalsPasswordConfirmPassword(password, confirmPassword);
         try {
-
             containsSymbols(login);
             containsSymbols(password);
             checkLoginLength(login);
@@ -32,7 +31,6 @@ public class Main {
             System.out.println(e.getMessage());
             return false;
         }
-
         return containsSymbols(login)
                 & containsSymbols(password)
                 & checkLoginLength(login)
